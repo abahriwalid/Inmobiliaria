@@ -44,6 +44,15 @@ public class Main {
         }
     }
     private static void darDeAltaInmueble(BufferedReader br) throws IOException {
+        System.out.println("Introduce la dirección del inmueble: ");
+        String direccion = br.readLine();
+        System.out.println("Introduzca el tipo de inmueble: ");
+        String tipo = br.readLine();
+        System.out.println("Introduzca un el precio: ");
+        double precio = Double.parseDouble(br.readLine());
+        Inmueble inmuebleNuevo = new Inmueble(direccion,tipo, precio);
+        inmuebles.add(inmuebleNuevo);
+        System.out.println("Inmueble nuevo creado correctamente.");
 
     }
 
