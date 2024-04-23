@@ -57,7 +57,7 @@ public class Main {
     }
 
     private static void modificarInmueble(BufferedReader br) throws IOException {
-
+        System.out.println("ghghg");
     }
 
     private static void darDeBajaInmueble(BufferedReader br) throws IOException {
