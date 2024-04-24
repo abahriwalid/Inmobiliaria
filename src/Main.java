@@ -58,6 +58,27 @@ public class Main {
 
     private static void modificarInmueble(BufferedReader br) throws IOException {
 
+        for (int i = 0; i < inmuebles.size(); i++) {
+            System.out.println(i + "" + inmuebles.get(i));
+        }
+
+        System.out.println("Ingrese el numero del inmueble a Modificar: ");
+        int numInm = Integer.parseInt(br.readLine());
+
+        System.out.println("Introduce la nueva dirección del inmueble: ");
+        String dir = br.readLine();
+        inmuebles.get(numInm).setDireccion(dir);
+        System.out.println("Introduzca el nuevo tipo de inmueble: ");
+        String tip = br.readLine();
+        inmuebles.get(numInm).setTipo(tip);
+        System.out.println("Introduzca el nuevo precio del inmueble: ");
+        double prec = Double.parseDouble(br.readLine());
+        inmuebles.get(numInm).setPrecio(prec);
+
+
+        System.out.println("Inmueble modificado correctamente.");
+        
+
     }
 
     private static void darDeBajaInmueble(BufferedReader br) throws IOException {
