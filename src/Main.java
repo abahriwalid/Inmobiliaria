@@ -43,6 +43,7 @@ public class Main {
             }
         }
     }
+
     private static void darDeAltaInmueble(BufferedReader br) throws IOException {
         System.out.println("Introduce la dirección del inmueble: ");
         String direccion = br.readLine();
@@ -50,7 +51,7 @@ public class Main {
         String tipo = br.readLine();
         System.out.println("Introduzca un el precio: ");
         double precio = Double.parseDouble(br.readLine());
-        Inmueble inmuebleNuevo = new Inmueble(direccion,tipo, precio);
+        Inmueble inmuebleNuevo = new Inmueble(direccion, tipo, precio);
         inmuebles.add(inmuebleNuevo);
         System.out.println("Inmueble nuevo creado correctamente.");
 
@@ -82,6 +83,16 @@ public class Main {
     }
 
     private static void darDeBajaInmueble(BufferedReader br) throws IOException {
+        System.out.println("\nIntroduzca la dirección del inmueble a dar de baja:");
+        String direccion = br.readLine();
 
+        for (Inmueble inmueble : inmuebles) {
+            if (inmueble.getDireccion().equalsIgnoreCase(direccion)) {
+                inmuebles.remove(inmueble);
+                System.out.println("Inmueble dado de baja exitosamente.");
+                return;
+            }
+        }
+        System.out.println("Inmueble no encontrado.");
     }
 }
