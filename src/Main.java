@@ -58,28 +58,30 @@ public class Main {
     }
 
     private static void modificarInmueble(BufferedReader br) throws IOException {
+        System.out.println("\nIntroduzca la dirección del inmueble a modificar:");
+        String direccion = br.readLine();
 
-        for (int i = 0; i < inmuebles.size(); i++) {
-            System.out.println(i + "" + inmuebles.get(i));
+        for (Inmueble inmueble : inmuebles) {
+            if (inmueble.getDireccion().equalsIgnoreCase(direccion)) {
+                System.out.println("Introduzca los nuevos detalles del inmueble:");
+
+                System.out.print("Nueva dirección: ");
+                String nuevaDireccion = br.readLine();
+                inmueble.setDireccion(nuevaDireccion);
+
+                System.out.print("Nuevo tipo: ");
+                String nuevoTipo = br.readLine();
+                inmueble.setTipo(nuevoTipo);
+
+                System.out.print("Nuevo precio: ");
+                double nuevoPrecio = Double.parseDouble(br.readLine());
+                inmueble.setPrecio(nuevoPrecio);
+
+                System.out.println("Inmueble modificado exitosamente.");
+                return;
+            }
         }
-
-        System.out.println("Ingrese el numero del inmueble a Modificar: ");
-        int numInm = Integer.parseInt(br.readLine());
-
-        System.out.println("Introduce la nueva dirección del inmueble: ");
-        String dir = br.readLine();
-        inmuebles.get(numInm).setDireccion(dir);
-        System.out.println("Introduzca el nuevo tipo de inmueble: ");
-        String tip = br.readLine();
-        inmuebles.get(numInm).setTipo(tip);
-        System.out.println("Introduzca el nuevo precio del inmueble: ");
-        double prec = Double.parseDouble(br.readLine());
-        inmuebles.get(numInm).setPrecio(prec);
-
-
-        System.out.println("Inmueble modificado correctamente.");
-        
-
+        System.out.println("Inmueble no encontrado.");
     }
 
     private static void darDeBajaInmueble(BufferedReader br) throws IOException {
